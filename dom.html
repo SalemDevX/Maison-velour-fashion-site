@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DOM Structure — Maison Vélour</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .dom-section { padding: 5rem 4rem; }
+    .dom-tabs { display: flex; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+    .dom-tab-btn {
+      padding: 0.6rem 1.6rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border: 1px solid rgba(26,26,24,0.25);
+      background: transparent;
+      color: var(--mid);
+      cursor: pointer;
+      font-family: var(--ff-ui);
+      transition: all 0.3s;
+    }
+    .dom-tab-btn.active { background: var(--charcoal); color: var(--cream); border-color: var(--charcoal); }
+    .dom-page-panel { display: none; }
+    .dom-page-panel.active { display: block; }
+
+    .tree {
+      font-family: 'Courier New', monospace;
+      font-size: 0.8rem;
+      line-height: 1.9;
+      background: #0e0e0c;
+      color: #d4c5a0;
+      padding: 2.5rem;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    .tree .t-doc { color: #546e7a; }
+    .tree .t-tag { color: #c9a84c; }
+    .tree .t-attr { color: #a8d0e8; }
+    .tree .t-val { color: #a8e6a3; }
+    .tree .t-text { color: #6b6b5a; font-style: italic; }
+    .tree .t-comment { color: #424242; }
+    .indent1 { padding-left: 1.5em; }
+    .indent2 { padding-left: 3em; }
+    .indent3 { padding-left: 4.5em; }
+    .indent4 { padding-left: 6em; }
+    .indent5 { padding-left: 7.5em; }
+    .indent6 { padding-left: 9em; }
+
+    /* Visual tree diagram */
+    .vtree { padding: 2rem 0; overflow-x: auto; }
+    .vtree-node {
+      display: inline-block;
+      background: var(--charcoal);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 0.4rem 1rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      font-family: var(--ff-ui);
+      cursor: pointer;
+      transition: all 0.25s;
+      white-space: nowrap;
+    }
+    .vtree-node:hover { background: var(--gold); color: var(--charcoal); }
+    .vtree-node.root { background: var(--accent); border-color: var(--accent); color: #fff; font-size: 0.8rem; padding: 0.6rem 1.4rem; }
+    .vtree-node.root:hover { background: #6b0000; }
+    .vtree-level { display: flex; justify-content: center; gap: 1.5rem; margin-top: 0; }
+    .vtree-connector-col { display: flex; flex-direction: column; align-items: center; }
+    .vtree-vline { width: 1px; height: 24px; background: rgba(201,168,76,0.4); }
+    .vtree-hline-wrap { position: relative; display: flex; justify-content: center; }
+    .vtree-row { display: flex; flex-direction: column; align-items: center; }
+  </style>
+</head>
+<body>
+
+  <!-- MARQUEE -->
+  <div class="marquee-bar">
+    <div class="marquee-track">
+      <span>SS 2025 Collection — Now Available</span><span class="dot">✦</span>
+      <span>Atelier Opening: Lagos, April 12</span><span class="dot">✦</span>
+      <span>Exclusive Members-Only Trunk Show — March 28</span><span class="dot">✦</span>
+      <span>Complimentary alterations on all full-price gowns</span><span class="dot">✦</span>
+      <span>Flagship Boutique: 7 Marina Drive, Victoria Island</span><span class="dot">✦</span>
+      <span>SS 2025 Collection — Now Available</span><span class="dot">✦</span>
+      <span>Atelier Opening: Lagos, April 12</span><span class="dot">✦</span>
+      <span>Exclusive Members-Only Trunk Show — March 28</span><span class="dot">✦</span>
+      <span>Complimentary alterations on all full-price gowns</span><span class="dot">✦</span>
+      <span>Flagship Boutique: 7 Marina Drive, Victoria Island</span><span class="dot">✦</span>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="site-nav">
+    <a href="../index.html" class="nav-logo">Maison <em>Vélour</em></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="inquiries.html" class="nav-cta">Inquiries</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <p class="page-hero-eyebrow">Technical Documentation</p>
+    <h1 class="page-hero-title">DOM <em>Structure</em></h1>
+    <p class="page-hero-sub">The Document Object Model (DOM) represents every page of the Maison Vélour website as a structured tree of nodes — the backbone of our web presence.</p>
+  </div>
+
+  <!-- DOM EXPLANATION -->
+  <section class="dom-section">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-eyebrow">What is the DOM?</span>
+        <h2 class="section-title">The Document <em>Object Model</em></h2>
+        <div class="section-divider"></div>
+        <p class="section-desc">The DOM is a programming interface for web documents. It represents the page as a hierarchical tree of objects, allowing scripts to dynamically update the content, structure, and style of a document.</p>
+      </div>
+
+      <!-- Visual DOM Tree for the entire site -->
+      <div class="reveal" style="margin-bottom:4rem;text-align:center;">
+        <p style="font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;">Site-Wide DOM Overview</p>
+
+        <div class="vtree">
+          <!-- Level 0: Window -->
+          <div style="display:flex;justify-content:center;margin-bottom:0;">
+            <div class="vtree-row">
+              <div class="vtree-node root" onclick="showToast('window — Top-level browser object')">window</div>
+              <div class="vtree-vline"></div>
+            </div>
+          </div>
+
+          <!-- Level 1: document -->
+          <div style="display:flex;justify-content:center;margin-bottom:0;">
+            <div class="vtree-row">
+              <div class="vtree-node" onclick="showToast('document — The HTML document object')" style="min-width:140px;">document</div>
+              <div class="vtree-vline"></div>
+            </div>
+          </div>
+
+          <!-- Level 2: html -->
+          <div style="display:flex;justify-content:center;margin-bottom:0;">
+            <div class="vtree-row">
+              <div class="vtree-node" onclick="showToast('&lt;html lang=&quot;en&quot;&gt;')" style="min-width:140px;">&lt;html&gt;</div>
+              <div style="display:flex;gap:6rem;align-items:flex-start;justify-content:center;">
+                <div class="vtree-vline" style="margin-right:0;"></div>
+                <div class="vtree-vline" style="margin-left:0;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Level 3: head + body -->
+          <div style="display:flex;justify-content:center;gap:8rem;">
+            <div class="vtree-row">
+              <div class="vtree-node" onclick="showToast('&lt;head&gt; — Metadata, CSS links, title')" style="min-width:120px;">&lt;head&gt;</div>
+              <div class="vtree-vline"></div>
+              <div style="display:flex;gap:2rem;justify-content:center;">
+                <div class="vtree-row"><div class="vtree-node" onclick="showToast('&lt;meta charset&gt; &lt;title&gt; &lt;link rel=stylesheet&gt;')" style="font-size:0.6rem;padding:0.3rem 0.7rem;">&lt;meta&gt;</div></div>
+                <div class="vtree-row"><div class="vtree-node" onclick="showToast('&lt;title&gt;Maison Vélour&lt;/title&gt;')" style="font-size:0.6rem;padding:0.3rem 0.7rem;">&lt;title&gt;</div></div>
+                <div class="vtree-row"><div class="vtree-node" onclick="showToast('&lt;link rel=&quot;stylesheet&quot; href=&quot;css/styles.css&quot;&gt;')" style="font-size:0.6rem;padding:0.3rem 0.7rem;">&lt;link&gt;</div></div>
+              </div>
+            </div>
+            <div class="vtree-row">
+              <div class="vtree-node" onclick="showToast('&lt;body&gt; — All visible content')" style="min-width:120px;">&lt;body&gt;</div>
+              <div class="vtree-vline"></div>
+              <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                <div class="vtree-row"><div class="vtree-node" onclick="showToast('.marquee-bar — Scrolling announcements')" style="font-size:0.6rem;padding:0.3rem 0.7rem;">marquee</div></div>
+                <div class="vtree-row"><div class="vtree-node" onclick="showToast('&lt;nav class=site-nav&gt; — Navigation')" style="font-size:0.6rem;padding:0.3rem 0.7rem;">&lt;nav&gt;</div></div>
+                <div class="vtree-row"><div class="vtree-node" onclick="showToast('&lt;main&gt; or &lt;section&gt; — Page content')" style="font-size:0.6rem;padding:0.3rem 0.7rem;">&lt;main&gt;</div></div>
+                <div class="vtree-row"><div class="vtree-node" onclick="showToast('&lt;footer class=site-footer&gt;')" style="font-size:0.6rem;padding:0.3rem 0.7rem;">&lt;footer&gt;</div></div>
+                <div class="vtree-row"><div class="vtree-node" onclick="showToast('&lt;script src=js/main.js&gt;&lt;/script&gt;')" style="font-size:0.6rem;padding:0.3rem 0.7rem;">&lt;script&gt;</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p style="font-size:0.7rem;color:var(--warm);margin-top:1.5rem;">↑ Click any node to see its HTML attributes</p>
+      </div>
+
+      <!-- Code view tabs per page -->
+      <div class="reveal">
+        <div class="dom-tabs" id="domTabs">
+          <button class="dom-tab-btn active" onclick="switchDomTab('home',this)">index.html</button>
+          <button class="dom-tab-btn" onclick="switchDomTab('collections',this)">collections.html</button>
+          <button class="dom-tab-btn" onclick="switchDomTab('events',this)">events.html</button>
+          <button class="dom-tab-btn" onclick="switchDomTab('about',this)">about.html</button>
+          <button class="dom-tab-btn" onclick="switchDomTab('inquiries',this)">inquiries.html</button>
+          <button class="dom-tab-btn" onclick="switchDomTab('dom',this)">dom.html</button>
+        </div>
+
+        <!-- HOME DOM -->
+        <div class="dom-page-panel active" id="dom-home">
+          <div class="tree">
+<span class="t-doc">Document</span>
+<br>└── <span class="t-tag">&lt;html</span> <span class="t-attr">lang</span>=<span class="t-val">"en"</span><span class="t-tag">&gt;</span>
+<br><span class="indent1">├── <span class="t-tag">&lt;head&gt;</span></span>
+<br><span class="indent2">│   ├── <span class="t-tag">&lt;meta</span> <span class="t-attr">charset</span>=<span class="t-val">"UTF-8"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent2">│   ├── <span class="t-tag">&lt;meta</span> <span class="t-attr">name</span>=<span class="t-val">"viewport"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent2">│   ├── <span class="t-tag">&lt;title&gt;</span><span class="t-text">Maison Vélour — Luxury Fashion House</span><span class="t-tag">&lt;/title&gt;</span></span>
+<br><span class="indent2">│   └── <span class="t-tag">&lt;link</span> <span class="t-attr">rel</span>=<span class="t-val">"stylesheet"</span> <span class="t-attr">href</span>=<span class="t-val">"css/styles.css"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent1">└── <span class="t-tag">&lt;body&gt;</span></span>
+<br><span class="indent2">    ├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"marquee-bar"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent3">    │   └── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"marquee-track"</span><span class="t-tag">&gt;</span><span class="t-text">[event text spans]</span><span class="t-tag">&lt;/div&gt;</span></span>
+<br><span class="indent2">    ├── <span class="t-tag">&lt;nav</span> <span class="t-attr">class</span>=<span class="t-val">"site-nav"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent3">    │   ├── <span class="t-tag">&lt;a</span> <span class="t-attr">class</span>=<span class="t-val">"nav-logo"</span><span class="t-tag">&gt;</span><span class="t-text">Maison Vélour</span><span class="t-tag">&lt;/a&gt;</span></span>
+<br><span class="indent3">    │   └── <span class="t-tag">&lt;ul</span> <span class="t-attr">class</span>=<span class="t-val">"nav-links"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent4">    │       ├── <span class="t-tag">&lt;li&gt;&lt;a</span> <span class="t-attr">href</span>=<span class="t-val">"index.html"</span><span class="t-tag">&gt;</span><span class="t-text">Home</span><span class="t-tag">&lt;/a&gt;&lt;/li&gt;</span></span>
+<br><span class="indent4">    │       ├── <span class="t-tag">&lt;li&gt;&lt;a</span> <span class="t-attr">href</span>=<span class="t-val">"pages/collections.html"</span><span class="t-tag">&gt;</span><span class="t-text">Collections</span><span class="t-tag">&lt;/a&gt;&lt;/li&gt;</span></span>
+<br><span class="indent4">    │       ├── <span class="t-tag">&lt;li&gt;&lt;a</span> <span class="t-attr">href</span>=<span class="t-val">"pages/events.html"</span><span class="t-tag">&gt;</span><span class="t-text">Events</span><span class="t-tag">&lt;/a&gt;&lt;/li&gt;</span></span>
+<br><span class="indent4">    │       ├── <span class="t-tag">&lt;li&gt;&lt;a</span> <span class="t-attr">href</span>=<span class="t-val">"pages/about.html"</span><span class="t-tag">&gt;</span><span class="t-text">About Us</span><span class="t-tag">&lt;/a&gt;&lt;/li&gt;</span></span>
+<br><span class="indent4">    │       └── <span class="t-tag">&lt;li&gt;&lt;a</span> <span class="t-attr">href</span>=<span class="t-val">"pages/inquiries.html"</span> <span class="t-attr">class</span>=<span class="t-val">"nav-cta"</span><span class="t-tag">&gt;</span><span class="t-text">Inquiries</span><span class="t-tag">&lt;/a&gt;&lt;/li&gt;</span></span>
+<br><span class="indent2">    ├── <span class="t-tag">&lt;section</span> <span class="t-attr">class</span>=<span class="t-val">"hero"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent3">    │   ├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"hero-text reveal"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent4">    │   │   ├── <span class="t-tag">&lt;p</span> <span class="t-attr">class</span>=<span class="t-val">"hero-eyebrow"</span><span class="t-tag">&gt;</span><span class="t-text">Spring / Summer 2025</span><span class="t-tag">&lt;/p&gt;</span></span>
+<br><span class="indent4">    │   │   ├── <span class="t-tag">&lt;h1</span> <span class="t-attr">class</span>=<span class="t-val">"hero-title"</span><span class="t-tag">&gt;</span><span class="t-text">Where Fabric Meets Soul</span><span class="t-tag">&lt;/h1&gt;</span></span>
+<br><span class="indent4">    │   │   ├── <span class="t-tag">&lt;p</span> <span class="t-attr">class</span>=<span class="t-val">"hero-sub"</span><span class="t-tag">&gt;</span><span class="t-text">Tagline text...</span><span class="t-tag">&lt;/p&gt;</span></span>
+<br><span class="indent4">    │   │   └── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"hero-actions"</span><span class="t-tag">&gt;</span><span class="t-text">[CTA buttons]</span><span class="t-tag">&lt;/div&gt;</span></span>
+<br><span class="indent3">    │   └── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"hero-visual"</span><span class="t-tag">&gt;</span><span class="t-text">[animated letter]</span><span class="t-tag">&lt;/div&gt;</span></span>
+<br><span class="indent2">    ├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"stats-bar"</span><span class="t-tag">&gt;</span><span class="t-text">[4× .stat-item]</span><span class="t-tag">&lt;/div&gt;</span></span>
+<br><span class="indent2">    ├── <span class="t-tag">&lt;section</span> <span class="t-attr">class</span>=<span class="t-val">"section"</span><span class="t-tag">&gt;</span><span class="t-text">[featured products grid]</span><span class="t-tag">&lt;/section&gt;</span></span>
+<br><span class="indent2">    ├── <span class="t-tag">&lt;section</span> <span class="t-attr">class</span>=<span class="t-val">"section section-alt"</span><span class="t-tag">&gt;</span><span class="t-text">[brand philosophy]</span><span class="t-tag">&lt;/section&gt;</span></span>
+<br><span class="indent2">    ├── <span class="t-tag">&lt;footer</span> <span class="t-attr">class</span>=<span class="t-val">"site-footer"</span><span class="t-tag">&gt;</span><span class="t-text">[footer columns + copyright]</span><span class="t-tag">&lt;/footer&gt;</span></span>
+<br><span class="indent2">    └── <span class="t-tag">&lt;script</span> <span class="t-attr">src</span>=<span class="t-val">"js/main.js"</span><span class="t-tag">&gt;&lt;/script&gt;</span></span>
+          </div>
+        </div>
+
+        <!-- COLLECTIONS DOM -->
+        <div class="dom-page-panel" id="dom-collections">
+          <div class="tree">
+<span class="t-doc">Document</span> — <span class="t-text">pages/collections.html</span>
+<br>└── <span class="t-tag">&lt;html</span> <span class="t-attr">lang</span>=<span class="t-val">"en"</span><span class="t-tag">&gt;</span>
+<br><span class="indent1">├── <span class="t-tag">&lt;head&gt;</span><span class="t-text"> [meta, title, link→../css/styles.css]</span></span>
+<br><span class="indent1">└── <span class="t-tag">&lt;body&gt;</span></span>
+<br><span class="indent2">    ├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"marquee-bar"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent2">    ├── <span class="t-tag">&lt;nav</span> <span class="t-attr">class</span>=<span class="t-val">"site-nav"</span><span class="t-tag">&gt;</span><span class="t-text">[logo + nav-links]</span></span>
+<br><span class="indent2">    ├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"page-hero"</span><span class="t-tag">&gt;</span><span class="t-text">[eyebrow + h1 + subtitle]</span></span>
+<br><span class="indent2">    ├── <span class="t-tag">&lt;section</span> <span class="t-attr">class</span>=<span class="t-val">"section"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent3">    │   ├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"filter-bar"</span><span class="t-tag">&gt;</span><span class="t-text">[6× .filter-btn]</span></span>
+<br><span class="indent3">    │   └── <span class="t-tag">&lt;div</span> <span class="t-attr">data-tabs</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent4">    │       ├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"tab-nav"</span><span class="t-tag">&gt;</span><span class="t-text">[SS25 | AW24 | Archive]</span></span>
+<br><span class="indent4">    │       ├── <span class="t-tag">&lt;div</span> <span class="t-attr">id</span>=<span class="t-val">"ss25"</span> <span class="t-attr">class</span>=<span class="t-val">"tab-panel active"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent5">    │       │   └── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"product-grid"</span><span class="t-tag">&gt;</span><span class="t-text">[8× .product-card]</span></span>
+<br><span class="indent6">    │       │       └── <span class="t-text">Each .product-card: .product-img → .product-info → .product-actions</span></span>
+<br><span class="indent4">    │       ├── <span class="t-tag">&lt;div</span> <span class="t-attr">id</span>=<span class="t-val">"aw24"</span> <span class="t-attr">class</span>=<span class="t-val">"tab-panel"</span><span class="t-tag">&gt;</span><span class="t-text">[2× .product-card]</span></span>
+<br><span class="indent4">    │       └── <span class="t-tag">&lt;div</span> <span class="t-attr">id</span>=<span class="t-val">"archive"</span> <span class="t-attr">class</span>=<span class="t-val">"tab-panel"</span><span class="t-tag">&gt;</span><span class="t-text">[archive message + CTA]</span></span>
+<br><span class="indent2">    ├── <span class="t-tag">&lt;footer</span> <span class="t-attr">class</span>=<span class="t-val">"site-footer"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent2">    └── <span class="t-tag">&lt;script</span> <span class="t-attr">src</span>=<span class="t-val">"../js/main.js"</span><span class="t-tag">&gt;&lt;/script&gt;</span></span>
+          </div>
+        </div>
+
+        <!-- EVENTS DOM -->
+        <div class="dom-page-panel" id="dom-events">
+          <div class="tree">
+<span class="t-doc">Document</span> — <span class="t-text">pages/events.html</span>
+<br>└── <span class="t-tag">&lt;html&gt;</span> → <span class="t-tag">&lt;head&gt;</span> + <span class="t-tag">&lt;body&gt;</span>
+<br><span class="indent1">body</span>
+<br><span class="indent2">├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"marquee-bar"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent2">├── <span class="t-tag">&lt;nav</span> <span class="t-attr">class</span>=<span class="t-val">"site-nav"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent2">├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"page-hero"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent2">├── <span class="t-tag">&lt;section</span> <span class="t-attr">class</span>=<span class="t-val">"section"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent3">│   ├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"section-header reveal"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent3">│   ├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"filter-bar"</span><span class="t-tag">&gt;</span><span class="t-text">[5 filter buttons]</span></span>
+<br><span class="indent3">│   └── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"events-list"</span> <span class="t-attr">id</span>=<span class="t-val">"eventsList"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent4">│       └── <span class="t-text">6× .event-card</span></span>
+<br><span class="indent5">│           ├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"event-date"</span><span class="t-tag">&gt;</span><span class="t-text">[day, month, year]</span></span>
+<br><span class="indent5">│           ├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"event-info"</span><span class="t-tag">&gt;</span><span class="t-text">[h3, .event-meta, .event-desc]</span></span>
+<br><span class="indent5">│           └── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"event-tag"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent2">├── <span class="t-tag">&lt;section</span> <span class="t-attr">class</span>=<span class="t-val">"section section-alt"</span><span class="t-tag">&gt;</span><span class="t-text">[past highlights grid]</span></span>
+<br><span class="indent2">├── <span class="t-tag">&lt;footer</span> <span class="t-attr">class</span>=<span class="t-val">"site-footer"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent2">└── <span class="t-tag">&lt;script</span><span class="t-tag">&gt;</span><span class="t-text">[filterEvents() function]</span><span class="t-tag">&lt;/script&gt;</span></span>
+          </div>
+        </div>
+
+        <!-- ABOUT DOM -->
+        <div class="dom-page-panel" id="dom-about">
+          <div class="tree">
+<span class="t-doc">Document</span> — <span class="t-text">pages/about.html</span>
+<br>└── <span class="t-tag">&lt;html&gt;</span> → <span class="t-tag">&lt;head&gt;</span> + <span class="t-tag">&lt;body&gt;</span>
+<br><span class="indent1">body</span>
+<br><span class="indent2">├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"marquee-bar"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent2">├── <span class="t-tag">&lt;nav</span> <span class="t-attr">class</span>=<span class="t-val">"site-nav"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent2">├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"page-hero"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent2">├── <span class="t-tag">&lt;section</span> <span class="t-attr">class</span>=<span class="t-val">"section"</span><span class="t-tag">&gt;</span><span class="t-text"> [Our Story]</span></span>
+<br><span class="indent3">│   └── 3× <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"story-grid"</span><span class="t-tag">&gt;</span><span class="t-text">[text + visual]</span></span>
+<br><span class="indent2">├── <span class="t-tag">&lt;section</span> <span class="t-attr">class</span>=<span class="t-val">"section section-alt"</span> <span class="t-attr">id</span>=<span class="t-val">"board"</span><span class="t-tag">&gt;</span><span class="t-text"> [Board of Trustees]</span></span>
+<br><span class="indent3">│   └── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"board-grid"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent4">│       └── 8× <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"board-card"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent5">│           ├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"board-avatar"</span><span class="t-tag">&gt;</span><span class="t-text">[initials]</span></span>
+<br><span class="indent5">│           ├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"board-name"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent5">│           ├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"board-role"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent5">│           └── <span class="t-tag">&lt;p</span> <span class="t-attr">class</span>=<span class="t-val">"board-bio"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent2">├── <span class="t-tag">&lt;section</span> <span class="t-attr">class</span>=<span class="t-val">"section"</span><span class="t-tag">&gt;</span><span class="t-text"> [Values — 3 pillars]</span></span>
+<br><span class="indent2">└── <span class="t-tag">&lt;footer&gt;</span> + <span class="t-tag">&lt;script&gt;</span></span>
+          </div>
+        </div>
+
+        <!-- INQUIRIES DOM -->
+        <div class="dom-page-panel" id="dom-inquiries">
+          <div class="tree">
+<span class="t-doc">Document</span> — <span class="t-text">pages/inquiries.html</span>
+<br>└── <span class="t-tag">&lt;html&gt;</span> → <span class="t-tag">&lt;head&gt;</span> + <span class="t-tag">&lt;body&gt;</span>
+<br><span class="indent1">body</span>
+<br><span class="indent2">├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"marquee-bar"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent2">├── <span class="t-tag">&lt;nav</span> <span class="t-attr">class</span>=<span class="t-val">"site-nav"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent2">├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"page-hero"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent2">├── <span class="t-tag">&lt;section</span> <span class="t-attr">class</span>=<span class="t-val">"section"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent3">│   └── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"inquiry-grid"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent4">│       ├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"form-intro"</span><span class="t-tag">&gt;</span><span class="t-text">[contact details]</span></span>
+<br><span class="indent4">│       └── <span class="t-tag">&lt;form</span> <span class="t-attr">id</span>=<span class="t-val">"inquiryForm"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent5">│           ├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"form-row"</span><span class="t-tag">&gt;</span><span class="t-text">[firstName + lastName inputs]</span></span>
+<br><span class="indent5">│           ├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"form-group"</span><span class="t-tag">&gt;</span><span class="t-text">[email input]</span></span>
+<br><span class="indent5">│           ├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"form-group"</span><span class="t-tag">&gt;</span><span class="t-text">[phone input]</span></span>
+<br><span class="indent5">│           ├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"form-group"</span><span class="t-tag">&gt;</span><span class="t-text">[inquiryType select]</span></span>
+<br><span class="indent5">│           ├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"form-group"</span><span class="t-tag">&gt;</span><span class="t-text">[atelier select]</span></span>
+<br><span class="indent5">│           ├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"form-row"</span><span class="t-tag">&gt;</span><span class="t-text">[date + time]</span></span>
+<br><span class="indent5">│           ├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"form-group"</span><span class="t-tag">&gt;</span><span class="t-text">[message textarea]</span></span>
+<br><span class="indent5">│           └── <span class="t-tag">&lt;button</span> <span class="t-attr">type</span>=<span class="t-val">"submit"</span><span class="t-tag">&gt;</span><span class="t-text">Send Inquiry</span></span>
+<br><span class="indent2">├── <span class="t-tag">&lt;section</span> <span class="t-attr">class</span>=<span class="t-val">"section section-alt"</span><span class="t-tag">&gt;</span><span class="t-text"> [FAQ accordion — JS generated]</span></span>
+<br><span class="indent2">├── <span class="t-tag">&lt;footer&gt;</span></span>
+<br><span class="indent2">└── <span class="t-tag">&lt;script&gt;</span><span class="t-text">[FAQ generation + toggleFAQ()]</span><span class="t-tag">&lt;/script&gt;</span></span>
+          </div>
+        </div>
+
+        <!-- DOM.HTML DOM -->
+        <div class="dom-page-panel" id="dom-dom">
+          <div class="tree">
+<span class="t-doc">Document</span> — <span class="t-text">pages/dom.html</span>
+<br>└── <span class="t-tag">&lt;html&gt;</span> → <span class="t-tag">&lt;head&gt;</span> + <span class="t-tag">&lt;body&gt;</span>
+<br><span class="indent1">body</span>
+<br><span class="indent2">├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"marquee-bar"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent2">├── <span class="t-tag">&lt;nav</span> <span class="t-attr">class</span>=<span class="t-val">"site-nav"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent2">├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"page-hero"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent2">├── <span class="t-tag">&lt;section</span> <span class="t-attr">class</span>=<span class="t-val">"dom-section"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent3">│   ├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"section-header"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent3">│   ├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"vtree"</span><span class="t-tag">&gt;</span><span class="t-text">[visual DOM diagram]</span></span>
+<br><span class="indent3">│   └── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"reveal"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent4">│       ├── <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"dom-tabs"</span> <span class="t-attr">id</span>=<span class="t-val">"domTabs"</span><span class="t-tag">&gt;</span><span class="t-text">[6 tab buttons]</span></span>
+<br><span class="indent4">│       └── 6× <span class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span class="t-val">"dom-page-panel"</span><span class="t-tag">&gt;</span><span class="t-text">[code views]</span></span>
+<br><span class="indent2">├── <span class="t-tag">&lt;footer</span> <span class="t-attr">class</span>=<span class="t-val">"site-footer"</span><span class="t-tag">&gt;</span></span>
+<br><span class="indent2">└── <span class="t-tag">&lt;script&gt;</span><span class="t-text">[switchDomTab()]</span> + <span class="t-tag">&lt;script</span> <span class="t-attr">src</span>=<span class="t-val">"../js/main.js"</span><span class="t-tag">&gt;</span></span>
+          </div>
+        </div>
+
+      </div><!-- end reveal -->
+
+    </div>
+  </section>
+
+  <!-- SHARED JS FEATURES -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">JavaScript Features</span>
+        <h2 class="section-title">Applied <em>JS Features</em></h2>
+        <div class="section-divider"></div>
+        <p class="section-desc">All pages share a single external JavaScript file (main.js) providing the following features.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;" class="reveal">
+        <div style="background:var(--charcoal);padding:1.8rem;border-top:3px solid var(--gold);">
+          <h4 style="color:var(--gold);font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:0.8rem;">Scroll Reveal</h4>
+          <p style="font-size:0.78rem;color:rgba(255,255,255,0.5);line-height:1.8;">IntersectionObserver animates elements into view as users scroll down — applied to all .reveal elements.</p>
+        </div>
+        <div style="background:var(--charcoal);padding:1.8rem;border-top:3px solid var(--gold);">
+          <h4 style="color:var(--gold);font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:0.8rem;">Counter Animation</h4>
+          <p style="font-size:0.78rem;color:rgba(255,255,255,0.5);line-height:1.8;">Animated number counters on the homepage stats bar, easing from 0 to target value when visible.</p>
+        </div>
+        <div style="background:var(--charcoal);padding:1.8rem;border-top:3px solid var(--gold);">
+          <h4 style="color:var(--gold);font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:0.8rem;">Toast Notifications</h4>
+          <p style="font-size:0.78rem;color:rgba(255,255,255,0.5);line-height:1.8;">Dynamic pop-up notifications for user actions: wishlisting, enquiries, RSVP, and form submissions.</p>
+        </div>
+        <div style="background:var(--charcoal);padding:1.8rem;border-top:3px solid var(--gold);">
+          <h4 style="color:var(--gold);font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:0.8rem;">Filter System</h4>
+          <p style="font-size:0.78rem;color:rgba(255,255,255,0.5);line-height:1.8;">JavaScript-driven filtering on the Collections and Events pages — toggle by category/type with smooth visibility transitions.</p>
+        </div>
+        <div style="background:var(--charcoal);padding:1.8rem;border-top:3px solid var(--gold);">
+          <h4 style="color:var(--gold);font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:0.8rem;">Tab System</h4>
+          <p style="font-size:0.78rem;color:rgba(255,255,255,0.5);line-height:1.8;">Reusable tabbed panels on the Collections page for SS/AW seasons and on this DOM page for page views.</p>
+        </div>
+        <div style="background:var(--charcoal);padding:1.8rem;border-top:3px solid var(--gold);">
+          <h4 style="color:var(--gold);font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:0.8rem;">Form Validation + FAQ</h4>
+          <p style="font-size:0.78rem;color:rgba(255,255,255,0.5);line-height:1.8;">Client-side form validation with field highlighting on the Inquiries page, plus dynamically generated FAQ accordion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-top container">
+      <div class="footer-brand">
+        <div class="footer-logo">Maison Vélour</div>
+        <p class="footer-tagline">A luxury fashion house rooted in African heritage, crafting wearable art for the discerning global citizen.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link">in</a>
+          <a href="#" class="social-link">ig</a>
+          <a href="#" class="social-link">tw</a>
+          <a href="#" class="social-link">pt</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Collections</h4>
+        <ul>
+          <li><a href="collections.html">Evening Gowns</a></li>
+          <li><a href="collections.html">Tailored Suits</a></li>
+          <li><a href="collections.html">Ready-to-Wear</a></li>
+          <li><a href="collections.html">Accessories</a></li>
+          <li><a href="collections.html">Bridal</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Maison</h4>
+        <ul>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="about.html">Board of Trustees</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="dom.html">DOM Structure</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Client Services</h4>
+        <ul>
+          <li><a href="inquiries.html">Inquiries</a></li>
+          <li><a href="inquiries.html">Book Appointment</a></li>
+          <li><a href="#">Alteration Policy</a></li>
+          <li><a href="#">Shipping</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <span>© 2025 Maison Vélour. All rights reserved.</span>
+      <span><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms</a></span>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    function switchDomTab(id, btn) {
+      document.querySelectorAll('.dom-tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.dom-page-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('dom-' + id).classList.add('active');
+    }
+  </script>
+</body>
+</html>

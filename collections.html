@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collections — Maison Vélour</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- MARQUEE -->
+  <div class="marquee-bar">
+    <div class="marquee-track">
+      <span>SS 2025 Collection — Now Available</span><span class="dot">✦</span>
+      <span>Atelier Opening: Lagos, April 12</span><span class="dot">✦</span>
+      <span>Exclusive Members-Only Trunk Show — March 28</span><span class="dot">✦</span>
+      <span>Complimentary alterations on all full-price gowns</span><span class="dot">✦</span>
+      <span>Flagship Boutique: 7 Marina Drive, Victoria Island</span><span class="dot">✦</span>
+      <span>SS 2025 Collection — Now Available</span><span class="dot">✦</span>
+      <span>Atelier Opening: Lagos, April 12</span><span class="dot">✦</span>
+      <span>Exclusive Members-Only Trunk Show — March 28</span><span class="dot">✦</span>
+      <span>Complimentary alterations on all full-price gowns</span><span class="dot">✦</span>
+      <span>Flagship Boutique: 7 Marina Drive, Victoria Island</span><span class="dot">✦</span>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="site-nav">
+    <a href="index.html" class="nav-logo">Maison <em>Vélour</em></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="inquiries.html" class="nav-cta">Inquiries</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <p class="page-hero-eyebrow">Spring / Summer 2025</p>
+    <h1 class="page-hero-title">The <em>Collections</em></h1>
+    <p class="page-hero-sub">Twelve seasons of mastery distilled into a single breathtaking showcase. Each piece a conversation. Each collection a chapter.</p>
+  </div>
+
+  <!-- COLLECTIONS -->
+  <section class="section">
+    <div class="container">
+
+      <!-- Filter Bar -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All Pieces</button>
+        <button class="filter-btn" data-filter="gowns">Evening Gowns</button>
+        <button class="filter-btn" data-filter="suits">Tailored Suits</button>
+        <button class="filter-btn" data-filter="rtw">Ready-to-Wear</button>
+        <button class="filter-btn" data-filter="accessories">Accessories</button>
+        <button class="filter-btn" data-filter="bridal">Bridal</button>
+      </div>
+
+      <!-- Tabs for Season -->
+      <div data-tabs>
+        <div class="tab-nav">
+          <button class="tab-btn active" data-tab="ss25">SS 2025</button>
+          <button class="tab-btn" data-tab="aw24">AW 2024</button>
+          <button class="tab-btn" data-tab="archive">Archive</button>
+        </div>
+
+        <!-- SS25 Tab -->
+        <div id="ss25" class="tab-panel active">
+          <div class="product-grid">
+
+            <div class="product-card reveal" data-category="gowns">
+              <div class="product-img">
+                <div class="product-img-fill" style="background:linear-gradient(145deg,#0f1218,#1e2535)">𝓛</div>
+                <span class="product-badge">New</span>
+              </div>
+              <div class="product-info">
+                <div class="product-category">Evening Gowns</div>
+                <div class="product-name">Lapis Eveningwear</div>
+                <div class="product-price">₦ 620,000</div>
+              </div>
+              <div class="product-actions">
+                <button class="btn-sm" onclick="showToast('Lapis Eveningwear added to enquiry')">Enquire</button>
+                <button class="btn-sm gold">♡</button>
+              </div>
+            </div>
+
+            <div class="product-card reveal" data-category="gowns">
+              <div class="product-img">
+                <div class="product-img-fill" style="background:linear-gradient(145deg,#1a1a18,#2d2520)">𝓒</div>
+              </div>
+              <div class="product-info">
+                <div class="product-category">Evening Gowns</div>
+                <div class="product-name">Celestine Gown</div>
+                <div class="product-price">₦ 485,000</div>
+              </div>
+              <div class="product-actions">
+                <button class="btn-sm" onclick="showToast('Celestine Gown added to enquiry')">Enquire</button>
+                <button class="btn-sm gold">♡</button>
+              </div>
+            </div>
+
+            <div class="product-card reveal" data-category="suits">
+              <div class="product-img">
+                <div class="product-img-fill" style="background:linear-gradient(145deg,#1c1e28,#282a38)">𝓞</div>
+              </div>
+              <div class="product-info">
+                <div class="product-category">Tailored Suits</div>
+                <div class="product-name">Onyx Power Suit</div>
+                <div class="product-price">₦ 340,000</div>
+              </div>
+              <div class="product-actions">
+                <button class="btn-sm" onclick="showToast('Onyx Power Suit added to enquiry')">Enquire</button>
+                <button class="btn-sm gold">♡</button>
+              </div>
+            </div>
+
+            <div class="product-card reveal" data-category="suits">
+              <div class="product-img">
+                <div class="product-img-fill" style="background:linear-gradient(145deg,#1a1e1a,#253020)">𝓣</div>
+                <span class="product-badge" style="background:#c9a84c;color:#1a1a18">Limited</span>
+              </div>
+              <div class="product-info">
+                <div class="product-category">Tailored Suits</div>
+                <div class="product-name">Teal Savile Blazer</div>
+                <div class="product-price">₦ 290,000</div>
+              </div>
+              <div class="product-actions">
+                <button class="btn-sm" onclick="showToast('Teal Savile Blazer added to enquiry')">Enquire</button>
+                <button class="btn-sm gold">♡</button>
+              </div>
+            </div>
+
+            <div class="product-card reveal" data-category="rtw">
+              <div class="product-img">
+                <div class="product-img-fill" style="background:linear-gradient(145deg,#201416,#351e22)">𝓡</div>
+              </div>
+              <div class="product-info">
+                <div class="product-category">Ready-to-Wear</div>
+                <div class="product-name">Rosewood Midi Dress</div>
+                <div class="product-price">₦ 175,000</div>
+              </div>
+              <div class="product-actions">
+                <button class="btn-sm" onclick="showToast('Rosewood Midi Dress added to enquiry')">Enquire</button>
+                <button class="btn-sm gold">♡</button>
+              </div>
+            </div>
+
+            <div class="product-card reveal" data-category="accessories">
+              <div class="product-img">
+                <div class="product-img-fill" style="background:linear-gradient(145deg,#1a1410,#2a1f12)">𝓐</div>
+                <span class="product-badge" style="background:#c9a84c;color:#1a1a18">Limited</span>
+              </div>
+              <div class="product-info">
+                <div class="product-category">Accessories</div>
+                <div class="product-name">Auric Clutch</div>
+                <div class="product-price">₦ 125,000</div>
+              </div>
+              <div class="product-actions">
+                <button class="btn-sm" onclick="showToast('Auric Clutch added to enquiry')">Enquire</button>
+                <button class="btn-sm gold">♡</button>
+              </div>
+            </div>
+
+            <div class="product-card reveal" data-category="accessories">
+              <div class="product-img">
+                <div class="product-img-fill" style="background:linear-gradient(145deg,#10181a,#162430)">𝓢</div>
+              </div>
+              <div class="product-info">
+                <div class="product-category">Accessories</div>
+                <div class="product-name">Sapphire Belt</div>
+                <div class="product-price">₦ 85,000</div>
+              </div>
+              <div class="product-actions">
+                <button class="btn-sm" onclick="showToast('Sapphire Belt added to enquiry')">Enquire</button>
+                <button class="btn-sm gold">♡</button>
+              </div>
+            </div>
+
+            <div class="product-card reveal" data-category="bridal">
+              <div class="product-img">
+                <div class="product-img-fill" style="background:linear-gradient(145deg,#1a1818,#2e2a28)">𝓑</div>
+                <span class="product-badge">Bespoke</span>
+              </div>
+              <div class="product-info">
+                <div class="product-category">Bridal</div>
+                <div class="product-name">Blanc de Nuit Bridal</div>
+                <div class="product-price">₦ 1,200,000+</div>
+              </div>
+              <div class="product-actions">
+                <button class="btn-sm" onclick="showToast('Blanc de Nuit — bridal consultation requested')">Enquire</button>
+                <button class="btn-sm gold">♡</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- AW24 Tab -->
+        <div id="aw24" class="tab-panel">
+          <div class="product-grid">
+            <div class="product-card reveal" data-category="gowns">
+              <div class="product-img">
+                <div class="product-img-fill" style="background:linear-gradient(145deg,#141010,#281a14)">𝓐</div>
+              </div>
+              <div class="product-info">
+                <div class="product-category">Evening Gowns</div>
+                <div class="product-name">Amber Velvet Gown</div>
+                <div class="product-price">₦ 530,000</div>
+              </div>
+              <div class="product-actions">
+                <button class="btn-sm" onclick="showToast('Amber Velvet Gown added to enquiry')">Enquire</button>
+                <button class="btn-sm gold">♡</button>
+              </div>
+            </div>
+            <div class="product-card reveal" data-category="rtw">
+              <div class="product-img">
+                <div class="product-img-fill" style="background:linear-gradient(145deg,#181010,#2a1818)">𝓜</div>
+              </div>
+              <div class="product-info">
+                <div class="product-category">Ready-to-Wear</div>
+                <div class="product-name">Merlot Wrap Dress</div>
+                <div class="product-price">₦ 195,000</div>
+              </div>
+              <div class="product-actions">
+                <button class="btn-sm" onclick="showToast('Merlot Wrap Dress added to enquiry')">Enquire</button>
+                <button class="btn-sm gold">♡</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Archive Tab -->
+        <div id="archive" class="tab-panel">
+          <div style="text-align:center;padding:4rem 2rem;">
+            <p style="font-family:var(--ff-head);font-size:1.4rem;font-style:italic;color:var(--warm);">Archive pieces available by private appointment.</p>
+            <a href="inquiries.html" class="btn-primary" style="margin-top:1.5rem;display:inline-block;">Book a Viewing</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-top container">
+      <div class="footer-brand">
+        <div class="footer-logo">Maison Vélour</div>
+        <p class="footer-tagline">A luxury fashion house rooted in African heritage, crafting wearable art for the discerning global citizen.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link">in</a>
+          <a href="#" class="social-link">ig</a>
+          <a href="#" class="social-link">tw</a>
+          <a href="#" class="social-link">pt</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Collections</h4>
+        <ul>
+          <li><a href="collections.html">Evening Gowns</a></li>
+          <li><a href="collections.html">Tailored Suits</a></li>
+          <li><a href="collections.html">Ready-to-Wear</a></li>
+          <li><a href="collections.html">Accessories</a></li>
+          <li><a href="collections.html">Bridal</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Maison</h4>
+        <ul>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="about.html">Board of Trustees</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="dom.html">DOM Structure</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Client Services</h4>
+        <ul>
+          <li><a href="inquiries.html">Inquiries</a></li>
+          <li><a href="inquiries.html">Book Appointment</a></li>
+          <li><a href="#">Alteration Policy</a></li>
+          <li><a href="#">Shipping</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <span>© 2025 Maison Vélour. All rights reserved.</span>
+      <span><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms</a></span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

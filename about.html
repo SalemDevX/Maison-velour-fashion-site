@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Maison Vélour</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      margin-bottom: 6rem;
+    }
+    .story-grid:nth-child(even) { direction: rtl; }
+    .story-grid:nth-child(even) > * { direction: ltr; }
+    .story-year {
+      font-family: var(--ff-head);
+      font-size: 5rem;
+      font-weight: 300;
+      color: rgba(201,168,76,0.2);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .story-body {
+      font-size: 0.88rem;
+      color: var(--warm);
+      line-height: 2;
+    }
+    .story-visual {
+      background: var(--charcoal);
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--ff-head);
+      font-style: italic;
+      font-size: 8rem;
+      color: rgba(201,168,76,0.12);
+      position: relative;
+    }
+    .story-visual-label {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    @media (max-width: 768px) {
+      .story-grid { grid-template-columns: 1fr; gap: 2rem; direction: ltr !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MARQUEE -->
+  <div class="marquee-bar">
+    <div class="marquee-track">
+      <span>SS 2025 Collection — Now Available</span><span class="dot">✦</span>
+      <span>Atelier Opening: Lagos, April 12</span><span class="dot">✦</span>
+      <span>Exclusive Members-Only Trunk Show — March 28</span><span class="dot">✦</span>
+      <span>Complimentary alterations on all full-price gowns</span><span class="dot">✦</span>
+      <span>Flagship Boutique: 7 Marina Drive, Victoria Island</span><span class="dot">✦</span>
+      <span>SS 2025 Collection — Now Available</span><span class="dot">✦</span>
+      <span>Atelier Opening: Lagos, April 12</span><span class="dot">✦</span>
+      <span>Exclusive Members-Only Trunk Show — March 28</span><span class="dot">✦</span>
+      <span>Complimentary alterations on all full-price gowns</span><span class="dot">✦</span>
+      <span>Flagship Boutique: 7 Marina Drive, Victoria Island</span><span class="dot">✦</span>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="site-nav">
+    <a href="index.html" class="nav-logo">Maison <em>Vélour</em></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="inquiries.html" class="nav-cta">Inquiries</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <p class="page-hero-eyebrow">Est. 2011 — Lagos, Nigeria</p>
+    <h1 class="page-hero-title">Our <em>Story</em></h1>
+    <p class="page-hero-sub">Born from a desire to tell African stories through fabric, Maison Vélour stands at the intersection of heritage and the future.</p>
+  </div>
+
+  <!-- OUR STORY -->
+  <section class="section">
+    <div class="container">
+
+      <div class="story-grid reveal">
+        <div>
+          <div class="story-year">2011</div>
+          <h3 style="font-family:var(--ff-head);font-size:2rem;font-weight:300;margin-bottom:1rem;">The Founding</h3>
+          <p class="story-body">Adaeze Okonkwo left her position as head designer at a London fashion house with one conviction: African luxury deserved its own language. She opened the first Maison Vélour atelier in a small studio on Victoria Island with three seamstresses and a vision that would change Nigerian fashion forever.</p>
+        </div>
+        <div class="story-visual">2011<div class="story-visual-label">Victoria Island, Lagos</div></div>
+      </div>
+
+      <div class="story-grid reveal">
+        <div>
+          <div class="story-year">2016</div>
+          <h3 style="font-family:var(--ff-head);font-size:2rem;font-weight:300;margin-bottom:1rem;">Going Global</h3>
+          <p class="story-body">After winning the African Fashion International Award in 2014 and 2015, Maison Vélour made its international debut at London Fashion Week. The "Harmattan" collection drew standing ovations and was covered by Vogue, WWD, and The Guardian — placing Nigerian couture on the world map.</p>
+        </div>
+        <div class="story-visual">2016<div class="story-visual-label">London Fashion Week</div></div>
+      </div>
+
+      <div class="story-grid reveal">
+        <div>
+          <div class="story-year">2025</div>
+          <h3 style="font-family:var(--ff-head);font-size:2rem;font-weight:300;margin-bottom:1rem;">Today & Beyond</h3>
+          <p class="story-body">With six ateliers across Lagos, Abuja, Accra, London, New York and Paris, and over 3,200 clients worldwide, Maison Vélour is the definitive voice of contemporary African luxury. We remain committed to ethical sourcing, local artisan partnerships, and telling stories that transcend borders.</p>
+        </div>
+        <div class="story-visual">2025<div class="story-visual-label">6 Global Ateliers</div></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BOARD OF TRUSTEES -->
+  <section class="section section-alt" id="board">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">Leadership</span>
+        <h2 class="section-title">Board of <em>Trustees</em></h2>
+        <div class="section-divider"></div>
+        <p class="section-desc">The visionaries who guide Maison Vélour's creative direction, business strategy, and social commitments.</p>
+      </div>
+
+      <div class="board-grid">
+
+        <div class="board-card reveal">
+          <div class="board-avatar">AO</div>
+          <div class="board-name">Adaeze Okonkwo</div>
+          <div class="board-role">Founder & Creative Director</div>
+          <p class="board-bio">A graduate of Central Saint Martins, Adaeze founded Maison Vélour in 2011 after a decade designing for European couture houses. Her vision bridges Igbo textile heritage with international luxury.</p>
+        </div>
+
+        <div class="board-card reveal">
+          <div class="board-avatar">CE</div>
+          <div class="board-name">Chukwuemeka Eze</div>
+          <div class="board-role">Chairman, Board of Trustees</div>
+          <p class="board-bio">Former Director-General of the Nigerian Export Promotion Council, Emeka brings two decades of trade and commerce expertise, steering Maison Vélour's international expansion strategy.</p>
+        </div>
+
+        <div class="board-card reveal">
+          <div class="board-avatar">FB</div>
+          <div class="board-name">Fatimah Balogun</div>
+          <div class="board-role">Chief Financial Officer</div>
+          <p class="board-bio">A Harvard Business School alumna and former VP at Stanbic IBTC, Fatimah oversees all financial operations, investment portfolios, and sustainable business practices across all six ateliers.</p>
+        </div>
+
+        <div class="board-card reveal">
+          <div class="board-avatar">TA</div>
+          <div class="board-name">Tunde Adeyemi</div>
+          <div class="board-role">Head of Atelier Operations</div>
+          <p class="board-bio">With 20 years of master-tailoring experience and training under Dior in Paris, Tunde leads the technical excellence of all Maison Vélour workshops, ensuring every stitch meets couture standards.</p>
+        </div>
+
+        <div class="board-card reveal">
+          <div class="board-avatar">NO</div>
+          <div class="board-name">Ngozi Obi-Achike</div>
+          <div class="board-role">Director of Brand & Communications</div>
+          <p class="board-bio">A former editor at Arise Magazine and brand consultant for Pan-African luxury labels, Ngozi shapes Maison Vélour's voice, visual identity, and media presence across all global markets.</p>
+        </div>
+
+        <div class="board-card reveal">
+          <div class="board-avatar">KM</div>
+          <div class="board-name">Kwame Mensah</div>
+          <div class="board-role">Trustee — Ethical Sourcing</div>
+          <p class="board-bio">A Ghanaian textile academic and fair-trade advocate, Kwame chairs the Maison Vélour Ethical Sourcing Committee, building relationships with sustainable fabric producers across West Africa.</p>
+        </div>
+
+        <div class="board-card reveal">
+          <div class="board-avatar">ZI</div>
+          <div class="board-name">Zainab Ibrahim</div>
+          <div class="board-role">Lead Textile Designer</div>
+          <p class="board-bio">Trained at Ravensbourne University London, Zainab leads textile innovation at Maison Vélour — fusing traditional adire and aso-oke techniques with sustainable modern materials.</p>
+        </div>
+
+        <div class="board-card reveal">
+          <div class="board-avatar">DP</div>
+          <div class="board-name">Dr. David Peters</div>
+          <div class="board-role">Trustee — Legal & Governance</div>
+          <p class="board-bio">A senior partner at Banwo & Ighodalo with a specialism in intellectual property and luxury brand law, David protects the Maison Vélour brand across all 14 countries of operation.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">What We Stand For</span>
+        <h2 class="section-title">Our <em>Values</em></h2>
+        <div class="section-divider"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;" class="reveal">
+        <div style="padding:2.5rem;border:1px solid rgba(201,168,76,0.2);text-align:center;">
+          <div style="font-family:var(--ff-head);font-size:3rem;color:var(--gold);margin-bottom:1rem;">✦</div>
+          <h4 style="font-family:var(--ff-head);font-size:1.3rem;margin-bottom:0.8rem;">Heritage</h4>
+          <p style="font-size:0.82rem;color:var(--warm);line-height:1.8;">Every design honours the textile traditions of West Africa — passed down through generations and reimagined for the contemporary wardrobe.</p>
+        </div>
+        <div style="padding:2.5rem;border:1px solid rgba(201,168,76,0.2);text-align:center;background:var(--charcoal);">
+          <div style="font-family:var(--ff-head);font-size:3rem;color:var(--gold);margin-bottom:1rem;">◆</div>
+          <h4 style="font-family:var(--ff-head);font-size:1.3rem;margin-bottom:0.8rem;color:var(--cream);">Excellence</h4>
+          <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.8;">We accept nothing less than the highest standard in every stitch, seam, and silhouette. Couture is not a category — it is a commitment.</p>
+        </div>
+        <div style="padding:2.5rem;border:1px solid rgba(201,168,76,0.2);text-align:center;">
+          <div style="font-family:var(--ff-head);font-size:3rem;color:var(--gold);margin-bottom:1rem;">❧</div>
+          <h4 style="font-family:var(--ff-head);font-size:1.3rem;margin-bottom:0.8rem;">Responsibility</h4>
+          <p style="font-size:0.82rem;color:var(--warm);line-height:1.8;">From ethical fabric sourcing to our annual foundation scholarship for emerging designers, we believe luxury must leave the world better than it found it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-top container">
+      <div class="footer-brand">
+        <div class="footer-logo">Maison Vélour</div>
+        <p class="footer-tagline">A luxury fashion house rooted in African heritage, crafting wearable art for the discerning global citizen.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link">in</a>
+          <a href="#" class="social-link">ig</a>
+          <a href="#" class="social-link">tw</a>
+          <a href="#" class="social-link">pt</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Collections</h4>
+        <ul>
+          <li><a href="collections.html">Evening Gowns</a></li>
+          <li><a href="collections.html">Tailored Suits</a></li>
+          <li><a href="collections.html">Ready-to-Wear</a></li>
+          <li><a href="collections.html">Accessories</a></li>
+          <li><a href="collections.html">Bridal</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Maison</h4>
+        <ul>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="about.html">Board of Trustees</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="dom.html">DOM Structure</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Client Services</h4>
+        <ul>
+          <li><a href="inquiries.html">Inquiries</a></li>
+          <li><a href="inquiries.html">Book Appointment</a></li>
+          <li><a href="#">Alteration Policy</a></li>
+          <li><a href="#">Shipping</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <span>© 2025 Maison Vélour. All rights reserved.</span>
+      <span><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms</a></span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maison Vélour — Luxury Fashion House</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- MARQUEE -->
+  <div class="marquee-bar" aria-label="Upcoming announcements">
+    <div class="marquee-track">
+      <span>SS 2025 Collection — Now Available</span><span class="dot">✦</span>
+      <span>Atelier Opening: Lagos, April 12</span><span class="dot">✦</span>
+      <span>Exclusive Members-Only Trunk Show — March 28</span><span class="dot">✦</span>
+      <span>Complimentary alterations on all full-price gowns</span><span class="dot">✦</span>
+      <span>Flagship Boutique: 7 Marina Drive, Victoria Island</span><span class="dot">✦</span>
+      <span>SS 2025 Collection — Now Available</span><span class="dot">✦</span>
+      <span>Atelier Opening: Lagos, April 12</span><span class="dot">✦</span>
+      <span>Exclusive Members-Only Trunk Show — March 28</span><span class="dot">✦</span>
+      <span>Complimentary alterations on all full-price gowns</span><span class="dot">✦</span>
+      <span>Flagship Boutique: 7 Marina Drive, Victoria Island</span><span class="dot">✦</span>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="site-nav">
+    <a href="index.html" class="nav-logo">Maison <em>Vélour</em></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="inquiries.html" class="nav-cta">Inquiries</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text reveal">
+      <p class="hero-eyebrow">Spring / Summer 2025</p>
+      <h1 class="hero-title">Where Fabric<br><em>Meets Soul</em></h1>
+      <p class="hero-sub">Maison Vélour crafts wearable art for those who understand that true luxury is not worn — it is felt.</p>
+      <div class="hero-actions">
+        <a href="collections.html" class="btn-primary">Explore Collection</a>
+        <a href="inquiries.html" class="btn-outline">Book Appointment</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-visual-inner">
+        <div class="hero-illustration">V</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-number" data-target="14" data-suffix="">14</div>
+      <div class="stat-label">Years of Excellence</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-target="280" data-suffix="+">280+</div>
+      <div class="stat-label">Signature Pieces</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-target="6" data-suffix="">6</div>
+      <div class="stat-label">Global Ateliers</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-target="3200" data-suffix="+">3200+</div>
+      <div class="stat-label">Clients Worldwide</div>
+    </div>
+  </div>
+
+  <!-- FEATURED SECTION -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">Curated Selection</span>
+        <h2 class="section-title">Featured <em>Pieces</em></h2>
+        <div class="section-divider"></div>
+        <p class="section-desc">Each garment is a dialogue between tradition and modernity — handcrafted in our Lagos atelier.</p>
+      </div>
+
+      <div class="product-grid">
+        <div class="product-card reveal" data-category="gowns">
+          <div class="product-img">
+            <div class="product-img-fill" style="background:linear-gradient(145deg,#1a1a18,#2d2520)">𝓖</div>
+            <span class="product-badge">New</span>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Evening Gowns</div>
+            <div class="product-name">Celestine Gown</div>
+            <div class="product-price">₦ 485,000</div>
+          </div>
+          <div class="product-actions">
+            <button class="btn-sm" onclick="showToast('Celestine Gown added to enquiry list')">Enquire</button>
+            <button class="btn-sm gold">♡</button>
+          </div>
+        </div>
+
+        <div class="product-card reveal" data-category="suits">
+          <div class="product-img">
+            <div class="product-img-fill" style="background:linear-gradient(145deg,#1c1e28,#282a38)">𝓢</div>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Tailored Suits</div>
+            <div class="product-name">Onyx Power Suit</div>
+            <div class="product-price">₦ 340,000</div>
+          </div>
+          <div class="product-actions">
+            <button class="btn-sm" onclick="showToast('Onyx Power Suit added to enquiry list')">Enquire</button>
+            <button class="btn-sm gold">♡</button>
+          </div>
+        </div>
+
+        <div class="product-card reveal" data-category="accessories">
+          <div class="product-img">
+            <div class="product-img-fill" style="background:linear-gradient(145deg,#1a1410,#2a1f12)">𝓐</div>
+            <span class="product-badge" style="background:#c9a84c;color:#1a1a18">Limited</span>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Accessories</div>
+            <div class="product-name">Auric Clutch</div>
+            <div class="product-price">₦ 125,000</div>
+          </div>
+          <div class="product-actions">
+            <button class="btn-sm" onclick="showToast('Auric Clutch added to enquiry list')">Enquire</button>
+            <button class="btn-sm gold">♡</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:3rem;">
+        <a href="collections.html" class="btn-outline">View Full Collection</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT STRIP -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="inquiry-grid reveal">
+        <div>
+          <span class="section-eyebrow">Our Philosophy</span>
+          <h2 class="section-title" style="text-align:left;font-size:2.4rem;">The Art of <em>Deliberate</em> Dressing</h2>
+          <div class="section-divider" style="margin:1.5rem 0;"></div>
+          <p style="font-size:0.88rem;color:var(--warm);line-height:2;margin-bottom:1.5rem;">Founded in 2011 in Lagos, Maison Vélour was born from a conviction that African luxury deserves its own stage. We draw from Yoruba, Igbo, and Efik textile traditions — reimagining heritage for the modern wardrobe.</p>
+          <p style="font-size:0.88rem;color:var(--warm);line-height:2;margin-bottom:2rem;">Every thread is intentional. Every silhouette is considered. Every garment is a statement of quiet, unshakeable authority.</p>
+          <a href="about.html" class="btn-primary">Meet Our Team</a>
+        </div>
+        <div style="background:var(--charcoal);display:flex;align-items:center;justify-content:center;min-height:380px;position:relative;overflow:hidden;">
+          <div style="font-family:var(--ff-head);font-size:11rem;font-style:italic;color:rgba(201,168,76,0.1);line-height:1;user-select:none;">MV</div>
+          <div style="position:absolute;bottom:2rem;left:2rem;right:2rem;border-top:1px solid rgba(201,168,76,0.3);padding-top:1.2rem;">
+            <p style="color:var(--gold-lt);font-family:var(--ff-head);font-style:italic;font-size:1.1rem;">"Luxury is a state of being, not a price tag."</p>
+            <p style="color:rgba(255,255,255,0.4);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;margin-top:0.4rem;">— Adaeze Okonkwo, Founder</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-top container">
+      <div class="footer-brand">
+        <div class="footer-logo">Maison Vélour</div>
+        <p class="footer-tagline">A luxury fashion house rooted in African heritage, crafting wearable art for the discerning global citizen.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link">in</a>
+          <a href="#" class="social-link">ig</a>
+          <a href="#" class="social-link">tw</a>
+          <a href="#" class="social-link">pt</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Collections</h4>
+        <ul>
+          <li><a href="collections.html">Evening Gowns</a></li>
+          <li><a href="collections.html">Tailored Suits</a></li>
+          <li><a href="collections.html">Ready-to-Wear</a></li>
+          <li><a href="collections.html">Accessories</a></li>
+          <li><a href="collections.html">Bridal</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Maison</h4>
+        <ul>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="about.html">Board of Trustees</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="dom.html">DOM Structure</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Client Services</h4>
+        <ul>
+          <li><a href="inquiries.html">Inquiries</a></li>
+          <li><a href="inquiries.html">Book Appointment</a></li>
+          <li><a href="#">Alteration Policy</a></li>
+          <li><a href="#">Shipping</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <span>© 2025 Maison Vélour. All rights reserved.</span>
+      <span><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms</a></span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inquiries & Appointments — Maison Vélour</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- MARQUEE -->
+  <div class="marquee-bar">
+    <div class="marquee-track">
+      <span>SS 2025 Collection — Now Available</span><span class="dot">✦</span>
+      <span>Atelier Opening: Lagos, April 12</span><span class="dot">✦</span>
+      <span>Exclusive Members-Only Trunk Show — March 28</span><span class="dot">✦</span>
+      <span>Complimentary alterations on all full-price gowns</span><span class="dot">✦</span>
+      <span>Flagship Boutique: 7 Marina Drive, Victoria Island</span><span class="dot">✦</span>
+      <span>SS 2025 Collection — Now Available</span><span class="dot">✦</span>
+      <span>Atelier Opening: Lagos, April 12</span><span class="dot">✦</span>
+      <span>Exclusive Members-Only Trunk Show — March 28</span><span class="dot">✦</span>
+      <span>Complimentary alterations on all full-price gowns</span><span class="dot">✦</span>
+      <span>Flagship Boutique: 7 Marina Drive, Victoria Island</span><span class="dot">✦</span>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="site-nav">
+    <a href="index.html" class="nav-logo">Maison <em>Vélour</em></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="inquiries.html" class="nav-cta">Inquiries</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <p class="page-hero-eyebrow">We're Here to Help</p>
+    <h1 class="page-hero-title">Inquiries &amp; <em>Appointments</em></h1>
+    <p class="page-hero-sub">Whether you are commissioning a bespoke piece, planning a bridal look, or simply wish to experience our atelier — we look forward to hearing from you.</p>
+  </div>
+
+  <!-- MAIN INQUIRY SECTION -->
+  <section class="section">
+    <div class="container">
+      <div class="inquiry-grid reveal">
+
+        <!-- Contact Info -->
+        <div class="form-intro">
+          <h3 style="font-family:var(--ff-head);font-weight:300;font-size:2rem;margin-bottom:0.5rem;">Get in <em style="color:var(--gold);font-style:italic;">Touch</em></h3>
+          <div class="section-divider" style="margin:1.2rem 0;"></div>
+          <p style="font-size:0.85rem;color:var(--warm);line-height:1.9;margin-bottom:2.5rem;">All inquiries are handled personally by our client relations team. We respond within 24 hours during business hours (Mon–Sat, 9:00 AM – 6:00 PM WAT).</p>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">✉</div>
+            <div>
+              <strong>Email</strong>
+              hello@maisonvelour.com
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">☎</div>
+            <div>
+              <strong>Phone / WhatsApp</strong>
+              +234 (0) 812 345 6789
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">◉</div>
+            <div>
+              <strong>Flagship Atelier</strong>
+              7 Marina Drive, Victoria Island, Lagos — Nigeria
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">⊙</div>
+            <div>
+              <strong>Abuja Atelier</strong>
+              Plot 15, Maitama District, Abuja — Nigeria
+            </div>
+          </div>
+
+          <div style="margin-top:2.5rem;background:var(--cream);padding:2rem;border-left:3px solid var(--gold);">
+            <p style="font-family:var(--ff-head);font-style:italic;font-size:1.1rem;color:var(--charcoal);margin-bottom:0.5rem;">"Every client deserves to feel extraordinary."</p>
+            <p style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--warm);">— Client Relations Ethos</p>
+          </div>
+
+          <div style="margin-top:2rem;">
+            <p style="font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Our Services Include</p>
+            <ul style="font-size:0.82rem;color:var(--mid);line-height:2.2;">
+              <li>→ Bespoke & made-to-measure commissions</li>
+              <li>→ Bridal consultation & full atelier service</li>
+              <li>→ Private client styling sessions</li>
+              <li>→ Archive piece viewings</li>
+              <li>→ Corporate & event wardrobe curation</li>
+              <li>→ International client concierge</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Inquiry Form -->
+        <div>
+          <form class="inquiry-form" id="inquiryForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="firstName">First Name *</label>
+                <input class="form-input" type="text" id="firstName" name="firstName" placeholder="Adaeze" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lastName">Last Name *</label>
+                <input class="form-input" type="text" id="lastName" name="lastName" placeholder="Okonkwo" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address *</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="phone">Phone / WhatsApp</label>
+              <input class="form-input" type="tel" id="phone" name="phone" placeholder="+234 812 345 6789" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="inquiryType">Inquiry Type *</label>
+              <select class="form-select" id="inquiryType" name="inquiryType" required>
+                <option value="">— Select an option —</option>
+                <option value="bespoke">Bespoke Commission</option>
+                <option value="bridal">Bridal Consultation</option>
+                <option value="appointment">Atelier Appointment</option>
+                <option value="rtw">Ready-to-Wear Purchase</option>
+                <option value="styling">Private Styling Session</option>
+                <option value="event">Event Wardrobe Curation</option>
+                <option value="general">General Inquiry</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="preferredAtelier">Preferred Atelier</label>
+              <select class="form-select" id="preferredAtelier" name="preferredAtelier">
+                <option value="">— Select location —</option>
+                <option value="vi">Victoria Island, Lagos</option>
+                <option value="lekki">Lekki, Lagos</option>
+                <option value="abuja">Maitama, Abuja</option>
+                <option value="accra">Accra, Ghana</option>
+                <option value="london">Mayfair, London</option>
+                <option value="newyork">Manhattan, New York</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="prefDate">Preferred Date</label>
+                <input class="form-input" type="date" id="prefDate" name="prefDate" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="prefTime">Preferred Time</label>
+                <select class="form-select" id="prefTime" name="prefTime">
+                  <option value="">— Select time —</option>
+                  <option>9:00 AM</option>
+                  <option>10:00 AM</option>
+                  <option>11:00 AM</option>
+                  <option>12:00 PM</option>
+                  <option>1:00 PM</option>
+                  <option>2:00 PM</option>
+                  <option>3:00 PM</option>
+                  <option>4:00 PM</option>
+                  <option>5:00 PM</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="message">Message *</label>
+              <textarea class="form-textarea" id="message" name="message" placeholder="Please share any details about your inquiry — occasion, desired silhouette, budget range, timeline, etc." required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label style="display:flex;align-items:flex-start;gap:0.8rem;cursor:pointer;font-size:0.78rem;color:var(--mid);line-height:1.6;">
+                <input type="checkbox" id="newsletter" name="newsletter" style="margin-top:3px;accent-color:var(--gold);" />
+                Subscribe to receive Maison Vélour collection previews, event invitations, and exclusive offers.
+              </label>
+            </div>
+
+            <button type="submit" class="btn-primary form-submit">Send Inquiry</button>
+            <p class="form-note">We respect your privacy. Your information will never be shared with third parties.</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">Common Questions</span>
+        <h2 class="section-title">FAQs</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div style="max-width:760px;margin:0 auto;" id="faqList"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-top container">
+      <div class="footer-brand">
+        <div class="footer-logo">Maison Vélour</div>
+        <p class="footer-tagline">A luxury fashion house rooted in African heritage, crafting wearable art for the discerning global citizen.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link">in</a>
+          <a href="#" class="social-link">ig</a>
+          <a href="#" class="social-link">tw</a>
+          <a href="#" class="social-link">pt</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Collections</h4>
+        <ul>
+          <li><a href="collections.html">Evening Gowns</a></li>
+          <li><a href="collections.html">Tailored Suits</a></li>
+          <li><a href="collections.html">Ready-to-Wear</a></li>
+          <li><a href="collections.html">Accessories</a></li>
+          <li><a href="collections.html">Bridal</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Maison</h4>
+        <ul>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="about.html">Board of Trustees</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="dom.html">DOM Structure</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Client Services</h4>
+        <ul>
+          <li><a href="inquiries.html">Inquiries</a></li>
+          <li><a href="inquiries.html">Book Appointment</a></li>
+          <li><a href="#">Alteration Policy</a></li>
+          <li><a href="#">Shipping</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <span>© 2025 Maison Vélour. All rights reserved.</span>
+      <span><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms</a></span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // Dynamic FAQ accordion
+    const faqs = [
+      { q: 'How long does a bespoke commission take?', a: 'Bespoke commissions typically require 8–14 weeks from initial consultation to final fitting, depending on the complexity of the garment. Rush timelines may be accommodated for an additional fee.' },
+      { q: 'Do you ship internationally?', a: 'Yes. We ship to over 40 countries via secure, insured courier. Delivery timelines and import duties vary by destination — our client relations team can advise on specifics.' },
+      { q: 'What is your alteration policy?', a: 'All full-price garments come with complimentary alterations within 60 days of purchase. Alterations must be performed at a Maison Vélour atelier.' },
+      { q: 'Can I visit an atelier without an appointment?', a: 'Walk-ins are welcome at our Victoria Island and Lekki ateliers during business hours, though we strongly recommend booking in advance to ensure a dedicated stylist is available for you.' },
+      { q: 'How do I care for my Maison Vélour garment?', a: 'All garments come with a care card. Most pieces require dry cleaning. For specific care enquiries, please contact our atelier team — we are happy to guide you.' },
+    ];
+
+    const faqList = document.getElementById('faqList');
+    faqs.forEach((item, i) => {
+      const wrapper = document.createElement('div');
+      wrapper.style.cssText = 'border-bottom:1px solid rgba(26,26,24,0.1);';
+      wrapper.innerHTML = `
+        <button onclick="toggleFAQ(this)" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 0;background:none;border:none;cursor:pointer;font-family:var(--ff-ui);font-size:0.85rem;letter-spacing:0.06em;color:var(--charcoal);text-align:left;">
+          <span>${item.q}</span>
+          <span style="color:var(--gold);font-size:1.2rem;transition:transform 0.3s ease;flex-shrink:0;margin-left:1rem;">+</span>
+        </button>
+        <div style="display:none;padding:0 0 1.4rem;font-size:0.83rem;color:var(--warm);line-height:1.9;">${item.a}</div>
+      `;
+      faqList.appendChild(wrapper);
+    });
+
+    function toggleFAQ(btn) {
+      const content = btn.nextElementSibling;
+      const icon = btn.querySelector('span:last-child');
+      const isOpen = content.style.display !== 'none';
+      content.style.display = isOpen ? 'none' : 'block';
+      icon.textContent = isOpen ? '+' : '−';
+      icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(45deg)';
+    }
+  </script>
+</body>
+</html>
